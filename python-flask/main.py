@@ -10,8 +10,9 @@ app = flask.Flask(__name__)
 def proxy(path):
   page = requests.get(f'https://{path}').content.decode("UTF-8")
   # page can be manipulated here as a "UTF-8" string
-  newpage = page.replace("Bee", "ya like jazz")
-  return newpage
+  newpage = page.replace("Bee", "Ya like jazz")
+  newerpage = newpage.replace("bee", "ya like jazz")
+  return newerpage
   
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=8080)
