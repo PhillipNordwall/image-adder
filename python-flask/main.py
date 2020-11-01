@@ -4,14 +4,18 @@ import requests
 # https://requests.readthedocs.io/en/master/user/quickstart/
 
 app = flask.Flask(__name__)
+SRCC = "Bee"
+SRCL = "bee"
+REP = "buzz-buzz"
+
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
 def proxy(path):
   page = requests.get(f'https://{path}').content.decode("UTF-8")
   # page can be manipulated here as a "UTF-8" string
-  newpage = page.replace("Bee", "Ya like jazz")
-  newerpage = newpage.replace("bee", "ya like jazz")
+  newpage = page.replace(SRCC, REP)
+  newerpage = newpage.replace(SRCL, REP)
   return newerpage
   
 if __name__ == '__main__':
