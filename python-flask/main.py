@@ -1,11 +1,11 @@
+import re
 import flask
 # https://flask.palletsprojects.com/en/1.1.x/quickstart/
 import requests
 # https://requests.readthedocs.io/en/master/user/quickstart/
 
 app = flask.Flask(__name__)
-SRCC = "Bee"
-SRCL = "bee"
+REG = "[bB]ee"
 REP = "buzz-buzz"
 
 
@@ -14,8 +14,7 @@ REP = "buzz-buzz"
 def proxy(path):
   page = requests.get(f'https://{path}').content.decode("UTF-8")
   # page can be manipulated here as a "UTF-8" string
-  newpage = page.replace(SRCC, REP)
-  newerpage = newpage.replace(SRCL, REP)
+  newpage = re.sub(REG, REP, page)
   return newerpage
   
 if __name__ == '__main__':
