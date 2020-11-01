@@ -6,7 +6,7 @@ import requests
 
 app = flask.Flask(__name__)
 REG = "[bB]ee"
-REP = "buzz-buzz"
+REP = "buzz-buzz<img src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Vespa_Mandarinia_Magnifica_-_Filippo_Turetta.jpg/220px-Vespa_Mandarinia_Magnifica_-_Filippo_Turetta.jpg'>"
 
 
 @app.route('/', defaults={'path': ''})
